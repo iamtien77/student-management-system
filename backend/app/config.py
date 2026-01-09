@@ -1,0 +1,4 @@
+# Configuration
+# - SECRET_KEY
+# - SQLALCHEMY_DATABASE_URI
+# - JWT_SECRET_KEY
