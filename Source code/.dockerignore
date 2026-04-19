@@ -1,0 +1,21 @@
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv
+env
+.venv
+.git
+.gitignore
+.env
+.DS_Store
+*.log
+test_data_mock
+*.xlsx
+*.drawio
+.pytest_cache
+.coverage
+.vscode
+.idea
+test case

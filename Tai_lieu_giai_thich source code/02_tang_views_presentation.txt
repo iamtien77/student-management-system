@@ -1,0 +1,49 @@
+TAI LIEU 02 - TANG VIEWS (PRESENTATION LAYER)
+
+1) Vi tri va thanh phan
+- Thu muc: Source/views
+- Nhom man hinh:
+  + auth: login_view, forgot_password_view
+  + admin: dashboard, create_account, assign_lecturer, finalize_grades
+  + lecturer: dashboard, attendance, enter_grades
+  + student: dashboard, training_program, view_grades
+  + shared: profile, change_password
+  + components: crud_view (thanh phan dung lai)
+
+2) Vai tro chinh
+- Ve giao dien bang Tkinter.
+- Nhan input nguoi dung va goi callback duoc truyen vao.
+- Hien thi thong bao thanh cong/that bai.
+
+3) Muc do trach nhiem dung
+- Views chi nen:
+  + Lay du lieu tu form.
+  + Goi callback (navigate, action).
+  + Render ket qua.
+- Views KHONG nen:
+  + Tu doc/ghi file.
+  + Chua nghiep vu phuc tap (tinh GPA, finalize diem...).
+
+4) File nen tang cua tang View
+- base_view.py:
+  + Chua theme mau sac, font, helper tao widget, clear window, center window.
+  + Tao tinh dong nhat giao dien toan he thong.
+
+5) Thanh phan dung lai quan trong
+- components/crud_view.py:
+  + Tao man hinh CRUD tong quat bang config.
+  + Co bang Treeview, Add/Edit/Delete/Refresh.
+  + Giam lap code giua Student/Lecturer/Faculty/Course...
+
+6) Mau giao tiep voi tang duoi
+- LoginView goi Account.login(...), neu success thi callback ve Application de dieu huong dashboard.
+- Cac dashboard goi navigate callback voi key nhu: dashboard, logout, change_password...
+
+7) Uu diem
+- Tach ro giao dien theo vai tro.
+- Co base view + reusable component giup code gon hon.
+
+8) De xuat cai tien
+- Chuan hoa tat ca thong diep UI theo 1 bo message constants.
+- Bo sung validation UI truoc submit de giam loi phia sau.
+- Can nhac tach event handler khoi code ve giao dien neu module lon hon.

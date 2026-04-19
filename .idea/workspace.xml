@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ef0b9aea-4fea-4d6a-8b9e-a126778a5c11" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Requirements/RAD_06.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/RequirementAndDesign_06.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/RequirementAndDesign_06.extracted.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/RequirementAndDesign_06.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/SMS digram.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/bancuoi06.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/bancuoi06.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page10_Image54_1312x751.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page13_Image61_955x1431.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page28_Image92_1508x689.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page29_Image95_1430x1073.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page31_Image100_940x886.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page31_Image101_900x896.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page32_Image104_854x863.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page33_Image107_1440x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page34_Image110_1440x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page35_Image113_1440x1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page6_Image42_1307x582.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page7_Image45_1162x852.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page8_Image48_1221x921.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/extracted_images/page9_Image51_1381x698.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Requirements/project.drawio" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/HuongDan.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/controllers/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/controllers/auth_controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/controllers/user_controller.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/accounts.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/attendance.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/classes.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/courses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/curriculum.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/faculties.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/grades.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/lecturers.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/semesters.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/data/students.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/account.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/attendance.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/class_section.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/course.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/faculty.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/grade.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/lecturer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/semester.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/student.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/training_program.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/models/user_record.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/utils/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/utils/auth_helper.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/utils/file_handler.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/utils/validators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/admin/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/admin/assign_lecturer_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/admin/create_account_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/admin/dashboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/admin/finalize_grades_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/auth/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/auth/forgot_password_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/auth/login_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/base_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/components/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/components/crud_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/lecturer/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/lecturer/attendance_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/lecturer/dashboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/lecturer/enter_grades_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/shared/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/shared/change_password_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/shared/profile_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/student/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/student/dashboard.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/student/training_program_view.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/SOURCE_Folders/views/student/view_grades_view.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="3CJ38Um0lfwjWUaaOqPnDDkPn1D" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "main",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-PY-261.22158.340" />
+        <option value="bundled-python-sdk-b63d5a1f7c97-b61e75351b1f-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-261.22158.340" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ef0b9aea-4fea-4d6a-8b9e-a126778a5c11" name="Changes" comment="" />
+      <created>1776089692563</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776089692563</updated>
+      <workItem from="1776089698487" duration="60000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

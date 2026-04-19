@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  sms-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: student-management-app
+    image: student-management-app:latest
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+      - DISPLAY=${DISPLAY:-host.docker.internal:0.0}
+    volumes:
+      - ./Source/data:/app/Source/data
+      - ./Source/test_data_mock:/app/Source/test_data_mock
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw  # For Linux X11
+    network_mode: host  # Để truy cập X11 display
+    stdin_open: true
+    tty: true
+    restart: on-failure

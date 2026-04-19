@@ -1,0 +1,40 @@
+TAI LIEU 06 - TANG DATA (TEXT FILE STORAGE LAYER)
+
+1) Vi tri
+- Thu muc: Source/data
+- File du lieu chinh:
+  + accounts.txt
+  + students.txt
+  + lecturers.txt
+  + faculties.txt
+  + courses.txt
+  + classes.txt
+  + grades.txt
+  + semesters.txt
+  + attendance.txt
+  + curriculum.txt
+
+2) Dinh dang luu tru
+- Moi dong la 1 ban ghi.
+- Truong du lieu tach boi ky tu '|'.
+- Vi du account: username|password_hash|role|...
+
+3) Co che truy cap
+- He thong khong truy cap file truc tiep tu moi noi.
+- Da tap trung qua utils/file_handler de:
+  + dong nhat cach doc/ghi,
+  + de thay doi backend sau nay,
+  + giam loi lap code.
+
+4) Uu diem
+- Don gian, de setup, khong can DB server.
+- Phu hop bai tap hoc phan, demo, project nho.
+
+5) Han che
+- Kho dam bao dong bo khi nhieu thao tac cung luc.
+- Khong co transaction/rollback manh nhu DB.
+- Kho query phuc tap, kho scale lon.
+
+6) Huong nang cap
+- Chuyen dan sang SQLite (de giu su don gian) hoac PostgreSQL/MySQL.
+- Tao data access layer de giam impact khi doi backend.

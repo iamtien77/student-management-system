@@ -1,0 +1,89 @@
+TÀI LIỆU 07 - GIẢI THÍCH CHI TIẾT FILE MAIN.PY
+
+1) Vai trò tổng quan
+- main.py là entry point của ứng dụng.
+- Chứa lớp Application để:
+  + Tạo cửa sổ Tkinter,
+  + Quản lý phiên đăng nhập,
+  + Điều hướng giao diện theo vai trò.
+
+2) Khởi tạo ứng dụng
+Trong Application.__init__:
+- Tạo self.root = tk.Tk().
+- Đặt title và màu nền theo views.base_view.COLORS.
+- Đặt self._account = None.
+- Gọi _init_default_admin().
+- Gọi _show_login() để hiển thị màn hình đăng nhập đầu tiên.
+
+3) _init_default_admin()
+- Kiểm tra tài khoản username 'iamtien' có tồn tại chưa.
+- Nếu chưa có, hệ thống tự tạo account admin mặc định trong accounts.txt.
+- Password được hash qua hash_password trước khi lưu.
+- Mục đích: đảm bảo hệ thống có tài khoản quản trị ban đầu.
+- Lưu ý bảo mật: cần đổi thông tin mặc định này khi triển khai thật.
+
+4) Nhóm hàm điều hướng xác thực
+- _show_login(): reset session hiện tại, mở LoginView.
+- _show_forgot_password(): mở ForgotPasswordView.
+- _on_login_success(account): phân nhánh theo role:
+  + Admin -> _show_admin_dashboard()
+  + Student -> _show_student_dashboard()
+  + Lecturer -> _show_lecturer_dashboard()
+
+5) Điều hướng cho Admin
+- _show_admin_dashboard(): mở dashboard admin.
+- _admin_navigate(view_name): bộ điều phối trung tâm cho tất cả chức năng admin:
+  + logout, dashboard, change_password, create_account
+  + CRUD student, lecturer, faculty, semester, course, class
+  + assign_lecturer
+  + finalize_grades
+- _show_crud(title, config): tái sử dụng CrudView với config tương ứng.
+
+6) Điều hướng cho Student
+- _show_student_dashboard()
+- _student_navigate(view_name):
+  + logout, dashboard, change_password
+  + view_profile, update_profile
+  + training_program
+  + view_grades
+
+7) Điều hướng cho Lecturer
+- _show_lecturer_dashboard()
+- _lecturer_navigate(view_name):
+  + logout, dashboard, change_password
+  + view_profile, update_profile
+  + attendance
+  + enter_grades
+
+8) Các hàm tạo cấu hình CRUD
+- _student_crud_config
+- _lecturer_crud_config
+- _faculty_crud_config
+- _semester_crud_config
+- _course_crud_config
+- _class_crud_config
+
+Mỗi hàm trả về 1 dict config gồm:
+- columns: cấu hình cột hiển thị Treeview
+- fields: cấu hình field form add/edit
+- get_all: lấy dữ liệu
+- add/update/delete: callback xử lý nghiệp vụ qua Admin model
+- key_field: khóa chính
+
+9) Kết thúc chương trình
+- run(): gọi self.root.mainloop().
+- Khởi chạy khi chạy trực tiếp file:
+  if __name__ == "__main__":
+      app = Application()
+      app.run()
+
+10) Đánh giá thiết kế main.py hiện tại
+- Ưu điểm:
+  + Điều hướng rõ ràng theo role.
+  + Tái sử dụng CrudView qua config linh hoạt.
+  + Tách màn hình và nghiệp vụ khá rõ.
+- Hạn chế:
+  + File main.py đang gom khá nhiều config CRUD, dễ phình to khi mở rộng.
+- Đề xuất:
+  + Tách từng config CRUD ra module riêng (ví dụ: config/crud_configs.py).
+  + Giữ main.py đúng vai trò bộ điều hướng gọn nhẹ.

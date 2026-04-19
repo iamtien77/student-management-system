@@ -1,0 +1,80 @@
+TÀI LIỆU 01 - TỔNG QUAN KIẾN TRÚC HỆ THỐNG (BẢN CHI TIẾT)
+
+I) Mục tiêu kiến trúc của dự án
+Hệ thống được thiết kế theo hướng phân tầng để đạt 3 mục tiêu lớn:
+1. Dễ bảo trì: Mỗi tầng xử lý một nhóm trách nhiệm rõ ràng, dễ sửa lỗi và nâng cấp.
+2. Dễ mở rộng: Khi thêm use-case mới (ví dụ: chốt điểm, phân công giảng viên), chỉ cần bổ sung đúng tầng liên quan.
+3. Dễ kiểm thử: Có thể test riêng logic nghiệp vụ mà không phụ thuộc giao diện.
+
+II) Các tầng chính và trách nhiệm
+A. Tầng Trình bày (Views) - Source/views
+- Chịu trách nhiệm về UI Tkinter: tạo frame, nút bấm, bảng hiển thị, form nhập.
+- Thu nhận input người dùng và gọi callback.
+- Hiển thị thông báo kết quả (success/error) sau khi xử lý.
+- Không nên thực hiện logic nghiệp vụ phức tạp tại đây.
+
+B. Tầng Điều phối (Controllers) - Source/controllers
+- Đóng vai trò xử lý use-case:
+  + Đăng nhập, đổi mật khẩu, quên mật khẩu.
+  + Tạo tài khoản, cập nhật hồ sơ, CRUD đối tượng cơ bản.
+- Kiểm tra dữ liệu ở mức ứng dụng trước khi thao tác xuống data.
+- Điều phối giữa View và Model/Utils.
+
+C. Tầng Nghiệp vụ (Models) - Source/models
+- Biểu diễn các đối tượng nghiệp vụ: Student, Lecturer, Course, Grade, Semester...
+- Chứa quy tắc nghiệp vụ cốt lõi:
+  + Quản lý thực thể theo ID/code.
+  + Các tác vụ nghiệp vụ như finalize grades, tính GPA.
+- Class Admin đang là một domain object quan trọng và xử lý nhiều UC của vai trò quản trị.
+
+D. Tầng Hỗ trợ hạ tầng (Utils) - Source/utils
+- Chứa các hàm tiện ích dùng chung:
+  + auth_helper: hash/verify/sinh mật khẩu.
+  + file_handler: đọc/ghi/sửa/xóa bản ghi trong file txt.
+  + validators: kiểm tra email, phone, date, password, grade...
+- Mục tiêu là tách logic kỹ thuật khỏi UI và khỏi domain logic.
+
+E. Tầng Dữ liệu (Data) - Source/data
+- Lưu trữ dữ liệu thực tế của hệ thống.
+- Định dạng mỗi dòng là 1 record, tách trường bởi dấu '|'.
+- Các bảng txt chính: accounts, students, lecturers, courses, grades, semesters...
+
+III) Vai trò của main.py trong kiến trúc
+- main.py là entry point của toàn bộ ứng dụng desktop.
+- Chứa class Application để:
+  1. Khởi tạo cửa sổ chính Tkinter.
+  2. Khởi tạo admin mặc định nếu hệ thống chưa có.
+  3. Quản lý session tại mức app.
+  4. Điều hướng theo role: Admin / Student / Lecturer.
+- Có thể xem main.py là bộ điều phối màn hình cấp cao nhất (application-level router).
+
+IV) Luồng chạy tổng quát từ đầu đến cuối
+1. Người dùng thao tác trên màn hình (View).
+2. View gọi callback tới hàm điều hướng/hàm xử lý.
+3. Controller hoặc Model nhận yêu cầu và kiểm tra dữ liệu.
+4. Utils đọc/ghi file dữ liệu nếu cần.
+5. Kết quả trả về UI để hiển thị thông báo và cập nhật màn hình.
+
+V) Điểm mạnh hiện tại của hệ thống
+- Cấu trúc thư mục rõ ràng theo chức năng.
+- Có reusable component CrudView giúp giảm lặp code giao diện.
+- Có utility riêng cho xác thực và data access text file.
+- Quy trình role-based navigation rõ trong Application.
+
+VI) Hạn chế và rủi ro kỹ thuật
+1. Lưu dữ liệu bằng txt:
+- Dễ dùng nhưng khó scale, khó query phức tạp, khó đảm bảo đồng bộ khi nhiều thao tác cùng lúc.
+
+2. Bảo mật mật khẩu:
+- Tài khoản admin mặc định trong startup cần đổi ngay trong môi trường thật.
+- Hash SHA-256 nhanh, không tốt bằng bcrypt/argon2 trong sản phẩm production.
+
+3. Kiến trúc logic:
+- Có dấu hiệu trùng lặp giữa controller và model Admin ở một số use-case.
+- Nếu dự án lớn dần, cần chốt rõ boundary trách nhiệm để tránh phình code.
+
+VII) Hướng cải tiến đề xuất
+1. Chuẩn hóa luồng xử lý: View -> Controller -> Model -> Utils/Data.
+2. Tách cấu hình CRUD khỏi main.py để giảm kích thước file trung tâm.
+3. Bổ sung test case cho logic quan trọng: login, create account, finalize grades, GPA.
+4. Cân nhắc nâng cấp data layer lên SQLite để tăng độ ổn định và dễ mở rộng.

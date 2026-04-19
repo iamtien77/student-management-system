@@ -1,0 +1,131 @@
+TÀI LIỆU 03 - TẦNG CONTROLLERS (APPLICATION/USE-CASE LAYER) - BẢN CHI TIẾT
+
+I) Vai trò của tầng Controllers
+Controllers là tầng điều phối use-case, nằm giữa UI và domain/data.
+Mục tiêu:
+1. Nhận dữ liệu đầu vào từ View.
+2. Kiểm tra điều kiện nghiệp vụ mức ứng dụng (validation + access rule).
+3. Gọi model/util để thao tác dữ liệu.
+4. Trả kết quả thống nhất cho UI (success/fail + message).
+
+II) Các file controller hiện có
+1. Source/controllers/auth_controller.py
+2. Source/controllers/user_controller.py
+
+III) Phân tích chi tiết auth_controller.py
+
+1) Biến session nội bộ
+- _current_session = {"username": None, "role": None}
+- Ý nghĩa:
+  + Lưu trạng thái đăng nhập đơn giản trong runtime.
+  + Hỗ trợ chức năng get_session(), logout().
+
+2) get_session()
+- Trả về bản sao session hiện tại.
+- Giúp tránh việc module ngoài sửa trực tiếp dictionary gốc.
+
+3) login(username, password)
+Luồng xử lý:
+1. Tìm record account theo username trong accounts.txt.
+2. Kiểm tra cấu trúc record hợp lệ (có role, hash).
+3. verify_password với hash đã lưu.
+4. Nếu đúng: cập nhật _current_session và trả về (True, role).
+5. Nếu sai: trả về (False, message).
+
+Điểm mạnh:
+- Logic gọn, rõ.
+- Message lỗi cụ thể cho từng tình huống.
+
+4) logout()
+- Đặt lại session về trạng thái rỗng.
+- Đơn giản nhưng đúng vai trò lifecycle session.
+
+5) forgot_password(identifier)
+Luồng xử lý:
+1. Quét students.txt và lecturers.txt.
+2. So khớp identifier với email hoặc phone.
+3. Nếu thấy: trả username liên quan.
+4. Nếu không: thông báo không tìm thấy.
+
+Nhận xét:
+- Dùng được cho flow reset password không cần đăng nhập.
+- Đang là tìm kiếm tuyến tính, có thể chậm khi dữ liệu lớn.
+
+6) reset_password(username, new_password)
+Luồng xử lý:
+1. validate_password_complexity.
+2. hash mật khẩu mới.
+3. tìm record account.
+4. update_record vào accounts.txt.
+
+Ý nghĩa:
+- Đảm bảo mật khẩu mới đạt chuẩn tối thiểu trước khi ghi.
+
+7) change_password(username, old_password, new_password, confirm_password)
+Luồng xử lý:
+1. Kiểm tra new_password == confirm_password.
+2. Tìm account theo username.
+3. verify old_password với hash cũ.
+4. validate độ phức tạp mật khẩu mới.
+5. hash + ghi đè vào file.
+
+Ưu điểm:
+- Bao gồm đủ các bước bảo mật cơ bản của đổi mật khẩu.
+
+IV) Phân tích chi tiết user_controller.py
+
+1) create_account(..., actor_role)
+Trách nhiệm:
+- Chỉ cho phép Admin tạo account.
+- Validate dữ liệu đầu vào cơ bản (not-empty, email, phone, date).
+- Kiểm tra trùng user_id trong accounts.
+- Sinh mật khẩu tự động, hash rồi lưu account.
+- Tạo profile tương ứng theo role (students.txt hoặc lecturers.txt).
+
+Giá trị:
+- Gom đầy đủ rule tạo account trong 1 điểm vào.
+
+2) Cụm CRUD Student
+- get_all_students
+- add_student
+- update_student
+- delete_student
+- get_student
+
+Lưu ý:
+- delete_student xóa cả account liên kết để tránh dữ liệu mồ côi.
+
+3) Cụm CRUD Lecturer
+- get_all_lecturers
+- add_lecturer
+- update_lecturer
+- delete_lecturer
+- get_lecturer
+
+4) Hồ sơ cá nhân (UC6/UC7)
+- get_profile(username, role): route theo role.
+- update_profile(username, role, email, phone):
+  + Chỉ cho sửa email và phone.
+  + Validate format trước khi cập nhật.
+
+V) Điểm mạnh của tầng Controller hiện tại
+1. Use-case được nhóm rõ theo module auth và user.
+2. Validation đặt sớm, giảm nguy cơ ghi dữ liệu xấu.
+3. Thông điệp trả về có ý nghĩa cho UI hiển thị.
+
+VI) Vấn đề cần lưu ý
+1. Trùng lặp logic với model Admin:
+- CRUD student/lecturer xuất hiện cả trong controller và model admin.
+
+2. Boundary chưa thật sự rõ:
+- Cần quy ước nghiệp vụ đặt ở đâu là "nguồn sự thật".
+
+VII) Hướng chuẩn hóa đề xuất
+1. Chọn 1 flow chính:
+- Flow đề xuất: View -> Controller -> Model -> Utils/Data.
+
+2. Controller giữ vai trò use-case orchestration:
+- Validation, access rule, gọi domain methods.
+
+3. Model giữ domain rule:
+- Tránh viết trùng cùng một logic ở 2 nơi.
